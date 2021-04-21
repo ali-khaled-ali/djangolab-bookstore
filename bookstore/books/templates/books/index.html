@@ -1,0 +1,17 @@
+{% extends "layout/main.html" %}
+
+{% block body %}
+
+<h1>List Posts</h1>
+{% for book in books %}
+
+    <h2>Title: {{ book.title }}</h2>
+    <h3>Author: {{ book.author }}</h3>
+    <p>{{ book.content }}</p>
+    <a href="{% url 'edit' book.id %}" ><button>edit</button></a>
+    <a href="{% url 'delete' book.id %}" ><button>delete</button></a>
+    <hr>
+{% endfor %}
+<a href="{% url 'create'  %}" ><button>create</button></a>
+
+{% endblock %}
