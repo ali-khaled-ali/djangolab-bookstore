@@ -7,6 +7,14 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ("categories",)
     search_fields = ("owner",)
 
+class BookInline(admin.StackedInline):
+    model = Book
+    max_num = 3
+    extra = 1
+
+class IsbnAdmin(admin.ModelAdmin):
+    inlines = [BookInline]
+
 admin.site.register(Book, BookAdmin)
 admin.site.register(Category)
-admin.site.register(Isbn)
+admin.site.register(Isbn,IsbnAdmin)
