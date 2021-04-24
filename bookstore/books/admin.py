@@ -17,4 +17,4 @@ class IsbnAdmin(admin.ModelAdmin):
 
 admin.site.register(Book, BookAdmin)
 admin.site.register(Category)
-admin.site.register(Isbn,IsbnAdmin)
+admin.site.register(Isbn, IsbnAdmin)

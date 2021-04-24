@@ -2,8 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import BookForm
 from .models import Book
+from django.contrib.auth.decorators import login_required, permission_required
 # Create your views here.
 
+@login_required(login_url='/login')
+@permission_required(['books.view_book'],raise_exception=True)
 def index(request):
     books = Book.objects.all()
     return render(request, "books/index.html", {
